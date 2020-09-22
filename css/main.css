@@ -563,7 +563,6 @@ label {
 }
 
 #turn:checked + .crystalBall {
-  background: linear-gradient(20deg, #44354D, #F8D4C8);
   background-size: 100% 150%;
   -webkit-animation: daylight 15s both;
           animation: daylight 15s both;

@@ -478,7 +478,7 @@ body, html {
   fill: yellow;
   stroke: rgba(255, 255, 0, 0.5);
   stroke-width: 20px;
-  stroke-dasharray: 5px;
+  stroke-dasharray: 4.5px;
   -webkit-animation: sunshine 20s infinite linear;
           animation: sunshine 20s infinite linear;
 }

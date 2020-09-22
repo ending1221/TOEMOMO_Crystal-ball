@@ -52,14 +52,45 @@ body, html {
   border: solid 3px rgba(255, 255, 255, 0.2);
 }
 
-.crystalBall * {
-  transform-box: fill-box;
+.crystalBall .todayWeather {
+  width: 35%;
+  height: 35%;
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  text-align: center;
+  opacity: 0;
+}
+
+.crystalBall .todayWeather svg .rain {
+  stroke: #f3f3f3;
+  stroke-width: 5px;
+}
+
+.crystalBall .todayWeather svg .cloud {
+  fill: #f2f9fe;
+}
+
+.crystalBall .todayWeather .cloud {
+  top: 0;
+  left: 0;
+}
+
+.crystalBall .todayWeather .topcloud {
+  top: 35%;
+  left: 10%;
 }
 
 .crystalBall .text_area {
   position: absolute;
-  top: 150px;
-  left: 112px;
+  bottom: 20%;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   color: #f3f3f3;
   text-align: center;
   opacity: 0;
@@ -72,7 +103,10 @@ body, html {
   font-weight: 100;
   line-height: 70px;
   text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
-  font-size: 60px;
+}
+
+.crystalBall .temperature span {
+  font-size: 40px;
 }
 
 .crystalBall .infos {
@@ -95,6 +129,8 @@ body, html {
   width: 250px;
   -webkit-transform-origin: center bottom;
           transform-origin: center bottom;
+  -webkit-animation: toemomo 3s infinite;
+          animation: toemomo 3s infinite;
 }
 
 .moon {
@@ -535,16 +571,17 @@ label {
           transition-duration: 3s;
 }
 
+#turn:checked + .crystalBall .todayWeather {
+  opacity: 1;
+}
+
 #turn:checked + .crystalBall .toemomo {
   top: 10px;
   left: 115px;
 }
 
 #turn:checked + .crystalBall .toemomo img {
-  width: 100px;
-  opacity: 1;
-  -webkit-animation: toemomo 3s infinite;
-          animation: toemomo 3s infinite;
+  opacity: 0;
 }
 
 #turn:checked + .crystalBall .topcloud {

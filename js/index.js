@@ -15,18 +15,18 @@ const weatherArray = ['多雲時晴', '晴天', '晴時多雲', '多雲', '陰�
 const $texts = $('.daybox').find('.text_area');
 
 
-fetch(
-    'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-5C1EF3CE-EE15-4209-9FDF-B9E3DE17E5A8',
-  )
-    .then(response => response.json())
-    .then(data => {
-        console.log(data.records.locations[0].location[9]);
-        // const weather = data.records.locations[0].location[9].weatherElement[6].time[0].elementValue[0].value
-        let random = parseInt(weatherArray.length*Math.random());
-        console.log(weatherArray[random]);
-        getWeather(weatherArray[random])
-        $texts.find('.todayWeather_text').text(weatherArray[random])
-    })
+// fetch(
+//     'https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-091?Authorization=CWB-5C1EF3CE-EE15-4209-9FDF-B9E3DE17E5A8',
+//   )
+//     .then(response => response.json())
+//     .then(data => {
+//         console.log(data.records.locations[0].location[9]);
+//         // const weather = data.records.locations[0].location[9].weatherElement[6].time[0].elementValue[0].value
+//         let random = parseInt(weatherArray.length*Math.random());
+//         console.log(weatherArray[random]);
+//         getWeather(weatherArray[random])
+//         $texts.find('.todayWeather_text').text(weatherArray[random])
+//     })
 
 function getWeather(weather) {
     const $weather = $('.crystalBall .todayWeather');
@@ -35,8 +35,6 @@ function getWeather(weather) {
     if (weather === '雨天') $weather.html(rain_Big);
     if (weather === '晴天') $weather.html(sun);
 }
-
-
 
 
 
@@ -84,6 +82,10 @@ fetch(
         temp = temp.length === 5 ? decimalPoint(temp) : temp;
 
         $texts.find('.temperature').html(temp + '<span>°C</span>');
-        $texts.find('.infos').html(data.parameter[0].parameterValue + data.parameter[2].parameterValue + '<br />' + today + ' ' + time)
+        $texts.find('.infos').html(data.parameter[0].parameterValue + data.parameter[2].parameterValue + '<br />' + today + ' ' + time);
+
+        let random = parseInt(weatherArray.length*Math.random());
+        getWeather(weatherArray[random])
+        $texts.find('.todayWeather_text').text(weatherArray[random])
     })
     

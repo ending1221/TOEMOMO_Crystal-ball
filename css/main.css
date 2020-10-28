@@ -27,6 +27,10 @@ body, html {
   cursor: pointer;
 }
 
+.daybox h3 {
+  font-size: .5rem;
+}
+
 .daybox:hover .bottom {
   height: 120px;
 }

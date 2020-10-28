@@ -105,7 +105,8 @@ function showWeekWeather(weekData) {
     let j = 0;
     for (let i = 0; i < 7; i++) {
         let num = checkWeatherNum(weekData[j].elementValue[1].value)
-        let day = weekData[j].startTime.slice(6,10).replace('-', '/');
+        console.log(weekData[j].startTime)
+        let day = weekData[j].startTime.slice(5,10).replace('-', '/');
         html += `
         <div class="dayweather">
             <h3>${day}</h3>
